@@ -29,7 +29,7 @@ npm run dev
 This project is a web application that calculate tips and create orders for a restaurant It's built with React, a JavaScript library for building user interfaces, and Tailwind CSS, a utility-first CSS framework for rapidly building custom designs.
 
 The project is structured as follows:
-
+```bash
 ├── package-lock.json
 ├── package.json
 ├── postcss.config.js
@@ -68,3 +68,4 @@ The project is structured as follows:
 ├── tsconfig.json
 ├── tsconfig.node.json
 └── vite.config.ts
+```
