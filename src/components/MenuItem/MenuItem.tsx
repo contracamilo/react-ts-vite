@@ -4,13 +4,13 @@ import Button from "../Button/Button";
 
 interface MenuItemProps {
   item: MenuItem;
-  onClick?: () => void;
+  onOrderClick: (item: MenuItem) => void;
 }
 
-const MenuItemBox: FC<MenuItemProps> = ({ item }) => {
+const MenuItemBox: FC<MenuItemProps> = ({ item, onOrderClick }) => {
   return (
     <Button
-      onClick={() => {}}
+      onClick={() => onOrderClick(item)}
       styles={
         "border-2 border-teal-400 hover:bg-teal-200 w-full p-3 flex justify-between rounded-lg"
       }
