@@ -1,15 +1,65 @@
 import { render, screen } from '@testing-library/react';
 import { Container } from './MenuContainer';
 
-test('renders the MenuList and CheckList components', () => {
-  const menuList = <div>Menu List</div>;
-  const checkList = <div>Check List</div>;
+describe('Container', () => {
+  const mockMenuList = <div>Mock Menu List</div>;
+  const mockOrderContent = () => <div>Mock Order Content</div>;
+  const mockOrder = [{ id: 1, name: 'Item 1', price: 30,  quantity: 1 }, { id: 2, name: 'Item 2', price: 40, quantity: 2}];
+  const mockTip = 10;
+  const mockSetTip = jest.fn();
+  const mockStoreOrder = jest.fn();
 
-  render(<Container MenuList={menuList} CheckList={checkList} />);
+  it('renders the menu and order sections', () => {
+    render(
+      <Container
+        MenuList={mockMenuList}
+        OrderContent={mockOrderContent}
+        order={mockOrder}
+        tip={mockTip}
+        setTip={mockSetTip}
+        storeOrder={mockStoreOrder}
+      />
+    );
 
-  const menuListElement = screen.getByText('Menu List');
-  const checkListElement = screen.getByText('Check List');
+    const menuSection = screen.getByText('Menu');
+    const orderSection = screen.getByText('Order');
 
-  expect(menuListElement).toBeInTheDocument();
-  expect(checkListElement).toBeInTheDocument();
+    expect(menuSection).toBeInTheDocument();
+    expect(orderSection).toBeInTheDocument();
+  });
+
+  it('renders the provided MenuList component', () => {
+    render(
+      <Container
+        MenuList={mockMenuList}
+        OrderContent={mockOrderContent}
+        order={mockOrder}
+        tip={mockTip}
+        setTip={mockSetTip}
+        storeOrder={mockStoreOrder}
+      />
+    );
+
+    const mockMenuListElement = screen.getByText('Mock Menu List');
+
+    expect(mockMenuListElement).toBeInTheDocument();
+  });
+
+  it('renders the provided OrderContent component', () => {
+    render(
+      <Container
+        MenuList={mockMenuList}
+        OrderContent={mockOrderContent}
+        order={mockOrder}
+        tip={mockTip}
+        setTip={mockSetTip}
+        storeOrder={mockStoreOrder}
+      />
+    );
+
+    const mockOrderContentElement = screen.getByText('Mock Order Content');
+
+    expect(mockOrderContentElement).toBeInTheDocument();
+  });
+
 });
