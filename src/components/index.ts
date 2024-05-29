@@ -4,6 +4,7 @@ import MenuItemBox from './MenuItem/MenuItem';
 import Button from './Button/Button';
 import { Order } from './Order/Order';
 import { Totals } from './Totals/Totals';
+import { TipForm } from './TipForm/TipForm';
 
 export {
   Header,
@@ -11,5 +12,6 @@ export {
   MenuItemBox,
   Button,
   Order,
-  Totals
+  Totals,
+  TipForm
 }
